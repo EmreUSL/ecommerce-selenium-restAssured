@@ -23,7 +23,7 @@ public class BasePage {
         }
     }
 
-    public void setElement(By locator, String value) {
+    public void sendText(By locator, String value) {
         try {
             WebElement element = WaitUtil.waitForVisible(locator);
             element.clear();
