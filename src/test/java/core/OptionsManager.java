@@ -12,10 +12,6 @@ public class OptionsManager {
 
     public ChromeOptions getChromeOptions() {
         ChromeOptions chromeOptions= new ChromeOptions();
-        if (Boolean.parseBoolean(ConfigReader.get("headless"))) {
-            chromeOptions.addArguments("--headless=new");
-        }
-        chromeOptions.addArguments("--disable-notifications");
         chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         return chromeOptions;
     }

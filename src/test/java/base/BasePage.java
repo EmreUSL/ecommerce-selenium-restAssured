@@ -1,11 +1,10 @@
 package base;
 
-import core.WaitUtil;
+import core.util.WaitUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 
@@ -41,6 +40,14 @@ public class BasePage {
         } catch (Exception e) {
             throw new RuntimeException("Cannot click element!" + locator, e);
         }
+    }
 
+    public boolean isDisplayed(By locator) {
+        try {
+           return WaitUtil.waitForVisible(locator).isDisplayed();
+        } catch (Exception e) {
+            System.out.println("Element not visible: " + locator);
+            return false;
+        }
     }
 }
